@@ -25,6 +25,13 @@ public class BeanConfig {
                                          .setFallbackUri("forward:/fallback/student")))*/
                         .uri("lb://SERVICE-COMPANY/")
                         .id("service-company"))
+                .route(r -> r.path("/savingAccount/**")
+                        /* .filters(f -> f.rewritePath("/api/student/(?.*)", "/${remains}")
+                                 .addRequestHeader("X-first-Header", "first-service-header")
+                                 .hystrix(c -> c.setName("hystrix")
+                                         .setFallbackUri("forward:/fallback/student")))*/
+                        .uri("lb://SERVICE-SAVINGACCOUNT/")
+                        .id("service-savingAccount"))
                 .build();
 
     }
