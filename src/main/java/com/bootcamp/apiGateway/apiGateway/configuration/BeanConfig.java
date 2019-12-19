@@ -32,8 +32,49 @@ public class BeanConfig {
                                          .setFallbackUri("forward:/fallback/student")))*/
                         .uri("lb://SERVICE-SAVINGACCOUNT/")
                         .id("service-savingAccount"))
+                .route(r -> r.path("/fixedTermAccount/**")
+                        /* .filters(f -> f.rewritePath("/api/student/(?.*)", "/${remains}")
+                                 .addRequestHeader("X-first-Header", "first-service-header")
+                                 .hystrix(c -> c.setName("hystrix")
+                                         .setFallbackUri("forward:/fallback/student")))*/
+                        .uri("lb://SERVICE-FIXEDTERMACCOUNT/")
+                        .id("service-fixedTermAccount"))
+                .route(r -> r.path("/currentAccount/**")
+                        /* .filters(f -> f.rewritePath("/api/student/(?.*)", "/${remains}")
+                                 .addRequestHeader("X-first-Header", "first-service-header")
+                                 .hystrix(c -> c.setName("hystrix")
+                                         .setFallbackUri("forward:/fallback/student")))*/
+                        .uri("lb://SERVICE-CURRENTACCOUNT/")
+                        .id("service-currentAccount"))
+                .route(r -> r.path("/creditPersonal/**")
+                        /* .filters(f -> f.rewritePath("/api/student/(?.*)", "/${remains}")
+                                 .addRequestHeader("X-first-Header", "first-service-header")
+                                 .hystrix(c -> c.setName("hystrix")
+                                         .setFallbackUri("forward:/fallback/student")))*/
+                        .uri("lb://SERVICE-CREDITPERSONAL/")
+                        .id("service-creditPersonal"))
+                .route(r -> r.path("/creditCompany/**")
+                        /* .filters(f -> f.rewritePath("/api/student/(?.*)", "/${remains}")
+                                 .addRequestHeader("X-first-Header", "first-service-header")
+                                 .hystrix(c -> c.setName("hystrix")
+                                         .setFallbackUri("forward:/fallback/student")))*/
+                        .uri("lb://SERVICE-CREDITCOMPANY/")
+                        .id("service-creditCompany"))
+                .route(r -> r.path("/creditCard/**")
+                        /* .filters(f -> f.rewritePath("/api/student/(?.*)", "/${remains}")
+                                 .addRequestHeader("X-first-Header", "first-service-header")
+                                 .hystrix(c -> c.setName("hystrix")
+                                         .setFallbackUri("forward:/fallback/student")))*/
+                        .uri("lb://SERVICE-CREDITCARD/")
+                        .id("service-creditCard"))
+                .route(r -> r.path("/cashAdvance/**")
+                        /* .filters(f -> f.rewritePath("/api/student/(?.*)", "/${remains}")
+                                 .addRequestHeader("X-first-Header", "first-service-header")
+                                 .hystrix(c -> c.setName("hystrix")
+                                         .setFallbackUri("forward:/fallback/student")))*/
+                        .uri("lb://SERVICE-CASHADVANCE/")
+                        .id("service-cashAdvance"))
                 .build();
-
     }
 
 }
