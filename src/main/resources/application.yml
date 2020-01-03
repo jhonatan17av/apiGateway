@@ -9,8 +9,9 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://servicio-eureka-server/eureka
+      defaultZone: http://eureka-server:8761/eureka/
     register-with-eureka: false
+
   instance:
     preferIpAddress: true
 
